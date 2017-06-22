@@ -4,8 +4,9 @@ import moment from 'moment'
 // so dont need to construct state
 
 const HourlyForecast = ({forecastData}) =>{
-  const renderForecasts = forecastData.map(({temperature, apparentTemperature, precipProbability, humidity,time},index) =>
+  const renderForecasts = forecastData.map(({temperature, apparentTemperature,summary, precipProbability, humidity,time},index) =>
     <div key={index} className="tempData" style={{ padding: '16px', margin: '16px'}}>
+    <h3>{summary}</h3>
     <p>Current Time: {moment.unix(time).format('LT')}</p>
     <p>Temperature: {Math.round(temperature)}</p>
     <p>Feels Like: {Math.round(apparentTemperature)}</p>

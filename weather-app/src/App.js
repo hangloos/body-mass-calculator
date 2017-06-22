@@ -60,7 +60,7 @@ class App extends Component {
           <div>
           <Navbar changeForecast={this.handleForecastChange}/>
           {forecastKey === 'currently' && <CurrentForecast forecast={forecast} />}
-          {forecastKey === 'minutely' && <MinutelyForecast forecastData={forecast.data} />}
+          {forecastKey === 'minutely' && <MinutelyForecast forecastData={forecast.data} forecast={forecast} />}
           {forecastKey === 'hourly' && <HourlyForecast forecastData={forecast.data} />}
           {forecastKey === 'daily' && <DailyForecast forecastData={forecast.data} />}
 
