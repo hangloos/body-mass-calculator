@@ -16,9 +16,25 @@
 
 .App-intro {
   font-size: large;
+  padding-top: 20px;
 }
 
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
+}
+
+
+.uibutton{
+  color: white;
+  margin: 5px;
+  background-color: darkblue;
+  border: none;
+}
+
+.uibutton:hover, .uibutton:focus{
+  color: darkblue;
+  background-color: white;
+  border: 1px darkblue solid;
+
 }
