@@ -3,6 +3,8 @@ import fetchJsonp from 'fetch-jsonp'
 import './App.css';
 import CurrentForecast from './components/CurrentForecast'
 import MinutelyForecast from './components/MinutelyForecast'
+import HourlyForecast from './components/HourlyForecast'
+import DailyForecast from './components/DailyForecast'
 
 
 import Navbar from './components/Navbar'
@@ -41,7 +43,6 @@ class App extends Component {
     console.log(weatherData)
 
     const forecast = weatherData[forecastKey]
-    console.log(weatherData[forecastKey])
 
     return (
       <div className="App">
@@ -57,7 +58,9 @@ class App extends Component {
           <Navbar changeForecast={this.handleForecastChange}/>
           {forecastKey === 'currently' && <CurrentForecast forecast={forecast} />}
           {forecastKey === 'minutely' && <MinutelyForecast forecastData={forecast.data} />}
-        
+          {forecastKey === 'hourly' && <HourlyForecast forecastData={forecast.data} />}
+          {forecastKey === 'daily' && <DailyForecast forecastData={forecast.data} />}
+
           </div>
         }
         </div>
