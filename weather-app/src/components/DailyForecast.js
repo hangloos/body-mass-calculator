@@ -5,7 +5,7 @@ import moment from 'moment'
 
 const DailyForecast = ({forecastData}) =>{
   const renderForecasts = forecastData.map(({temperatureMin, temperatureMax, precipProbability, humidity,time},index) =>
-    <div key={index} style={{border: 'solid 1px black', padding: '16px', margin: '16px'}}>
+    <div key={index} className="tempData" style={{padding: '16px', margin: '16px'}}>
     <p>Current Time: {moment.unix(time).format('LL')}</p>
     <p>Temperature Minimum: {Math.round(temperatureMin)}</p>
     <p>Temperature Maximum: {Math.round(temperatureMax)}</p>

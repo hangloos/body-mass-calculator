@@ -17,11 +17,17 @@
 .App-intro {
   font-size: large;
   padding-top: 20px;
+  background-color: #bdc3c7;
 }
 
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
+}
+
+.tempData{
+  background-color:#2c3e50;
+  color: white;
 }
 
 
@@ -30,12 +36,12 @@
   margin: 5px;
   height: 40px;
   width: 60px;
-  background-color: darkblue;
+  background-color: #3498db;
   border: none;
 }
 
 .uibutton:hover, .uibutton:focus{
-  color: darkblue;
+  color: #3498db;
   background-color: white;
   border: 1px darkblue solid;
 
