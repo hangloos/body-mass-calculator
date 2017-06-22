@@ -28,6 +28,8 @@
 .uibutton{
   color: white;
   margin: 5px;
+  height: 40px;
+  width: 60px;
   background-color: darkblue;
   border: none;
 }

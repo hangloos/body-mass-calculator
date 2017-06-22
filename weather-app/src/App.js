@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import fetchJsonp from 'fetch-jsonp'
 import './App.css';
 import CurrentForecast from './components/CurrentForecast'
+import MinutelyForecast from './components/MinutelyForecast'
+
+
 import Navbar from './components/Navbar'
 
 const APIURL = `https://api.darksky.net/forecast/${process.env.REACT_APP_DARK_SKY}/`
@@ -12,7 +15,8 @@ class App extends Component {
 
     this.state = {
       fetchingData: true,
-      weatherData: {}
+      weatherData: {},
+      forecastKey: null
     }
   }
 
@@ -25,14 +29,20 @@ class App extends Component {
         .then(response => response.json())
         .then(weatherData => this.setState({
           fetchingData: false,
-          weatherData}))
+          weatherData,
+        forecastKey: 'currently'}))
       });
   }
 
+  handleForecastChange = forecastKey => this.setState({forecastKey: forecastKey})
+
   render() {
-    const {fetchingData, weatherData} = this.state
-    console.log(fetchingData)
+    const {fetchingData, weatherData, forecastKey} = this.state
     console.log(weatherData)
+
+    const forecast = weatherData[forecastKey]
+    console.log(weatherData[forecastKey])
+
     return (
       <div className="App">
         <div className="App-header">
@@ -44,8 +54,10 @@ class App extends Component {
           <h1>Fetching Data</h1>
           :
           <div>
-          <Navbar/>
-          <CurrentForecast forecast={weatherData.currently} />
+          <Navbar changeForecast={this.handleForecastChange}/>
+          {forecastKey === 'currently' && <CurrentForecast forecast={forecast} />}
+          {forecastKey === 'minutely' && <MinutelyForecast forecastData={forecast.data} />}
+        
           </div>
         }
         </div>
