@@ -52,7 +52,10 @@ class App extends Component {
         <div className="App-intro">
         {
           fetchingData ?
-          <h1>Fetching Data</h1>
+          <div className="spinner">
+            <div className="double-bounce1"></div>
+            <div className="double-bounce2"></div>
+          </div>
           :
           <div>
           <Navbar changeForecast={this.handleForecastChange}/>
