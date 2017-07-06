@@ -8,8 +8,8 @@
     "email": "ericloos00@gmail.com",
     "phone": "555-555-5555",
     "address":{
-      "street":"933 Albany st, Suite 3",
-      "city":"Boston",
+      "street":"1540 N. Wood",
+      "city":"Chicago",
       "state":"MA",
       "zip": "20293"
     },
@@ -70,13 +70,13 @@
     ],
     "work":[
       {
-        "company":"Awesome Design Studio",
+        "company":"Freelance Web Developer",
         "title":"Senior UX Designer ",
         "years":"March 2010 - Present",
         "description":"Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. Nullam dictum felis eu pede mollis pretium."
       },
       {
-        "company":"Super Cool Studio",
+        "company":"Frontend Developer",
         "title":"UX Designer",
         "years":"March 2007 - February 2010",
         "description":"This is Photoshops version of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus a sit amet mauris. Morbi accumsan ipsum velit. Nam nec tellus a odio tincidunt auctor a ornare odio. Sed non mauris vitae erat"
