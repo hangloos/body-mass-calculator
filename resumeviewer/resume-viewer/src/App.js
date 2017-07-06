@@ -9,7 +9,15 @@ import Resume from './Components/Resume';
 import Testimonials from './Components/Testimonials';
 
 class App extends Component {
+
+  constructor(props){
+    super(props);
+    this.state = {
+      foo: 'bar'
+    }
+  }
   render() {
+    
     return (
       <div className="App">
         <Header/>
