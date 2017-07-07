@@ -1,12 +1,12 @@
 import React from 'react'
 
 
-const Navbar = ({changeForecast}) =>
+const Navbar = ({changeRoute}) =>
 <div>
-  <button className="uibutton" onClick={() => changeForecast('currently')}>Currrent</button>
-  <button className="uibutton" onClick={() => changeForecast('minutely')}>Minutely</button>
-  <button className="uibutton" onClick={() => changeForecast('hourly')}>Hourly</button>
-  <button className="uibutton" onClick={() => changeForecast('daily')}>Daily</button>
+  <button className="uibutton" onClick={() => changeRoute('currently')}>Currrent</button>
+  <button className="uibutton" onClick={() => changeRoute('minutely')}>Minutely</button>
+  <button className="uibutton" onClick={() => changeRoute('hourly')}>Hourly</button>
+  <button className="uibutton" onClick={() => changeRoute('daily')}>Daily</button>
 
 </div>
 

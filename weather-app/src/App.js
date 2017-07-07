@@ -5,6 +5,9 @@ import CurrentForecast from './components/CurrentForecast'
 import MinutelyForecast from './components/MinutelyForecast'
 import HourlyForecast from './components/HourlyForecast'
 import DailyForecast from './components/DailyForecast'
+import {connect} from 'react-redux'
+
+import {changeRoute} from './actions/routeActions';
 
 
 import Navbar from './components/Navbar'
@@ -16,9 +19,7 @@ class App extends Component {
     super()
 
     this.state = {
-      fetchingData: true,
       weatherData: {},
-      forecastKey: null
     }
   }
 
@@ -32,17 +33,18 @@ class App extends Component {
         .then(weatherData => this.setState({
           fetchingData: false,
           weatherData,
-        forecastKey: 'currently'}))
+        routeName: 'currently'}))
       });
   }
 
-  handleForecastChange = forecastKey => this.setState({forecastKey: forecastKey})
+  handleRouteChange = routeName => this.props.changeRoute({ routeName: routeName})
 
   render() {
-    const {fetchingData, weatherData, forecastKey} = this.state
+    const {fetchingData, weatherData,} = this.state
+    const { routeName } = this.props
     console.log(weatherData)
 
-    const forecast = weatherData[forecastKey]
+    const forecast = weatherData[routeName]
 
     return (
       <div className="App">
@@ -58,11 +60,11 @@ class App extends Component {
           </div>
           :
           <div>
-          <Navbar changeForecast={this.handleForecastChange}/>
-          {forecastKey === 'currently' && <CurrentForecast forecast={forecast} />}
-          {forecastKey === 'minutely' && <MinutelyForecast forecastData={forecast.data} forecast={forecast} />}
-          {forecastKey === 'hourly' && <HourlyForecast forecastData={forecast.data} />}
-          {forecastKey === 'daily' && <DailyForecast forecastData={forecast.data} />}
+          <Navbar changeRoute={this.handleRouteChange}/>
+          {routeName === 'currently' && <CurrentForecast forecast={forecast} />}
+          {routeName === 'minutely' && <MinutelyForecast forecastData={forecast.data} forecast={forecast} />}
+          {routeName === 'hourly' && <HourlyForecast forecastData={forecast.data} />}
+          {routeName === 'daily' && <DailyForecast forecastData={forecast.data} />}
 
           </div>
         }
@@ -72,4 +74,10 @@ class App extends Component {
   }
 }
 
-export default App;
+export default connect(
+state => ({
+  routeName: state.route.routeName
+}),{
+  changeRoute
+}
+)(App);
