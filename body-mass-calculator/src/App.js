@@ -47,22 +47,21 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Body Mass Calculator</h2>
+          <div className="container">
+            <h2>Body Mass Calculator</h2><img src={logo} className="App-logo" alt="logo" />
+            <form>
+              <div>
+                <label>Height</label>
+                <Range value={this.state.height} onChange={this.heightChange.bind(this)}/>
+              </div>
+              <div>
+                <label>Weight</label>
+                <Range value={this.state.weight} onChange={this.weightChange.bind(this)}/>
+              </div>
+            </form><br/><br/><br/>
+            <Output data={this.state}/>
           </div>
-          <form>
-            <div>
-              <label>Height</label>
-              <Range value={this.state.height} onChange={this.heightChange.bind(this)}/>
-            </div>
-            <div>
-              <label>Weight</label>
-              <Range value={this.state.weight} onChange={this.weightChange.bind(this)}/>
-            </div>
-          </form><br/><br/><br/>
-          <Output/>
-      </div>
+        </div>
     );
   }
 }
