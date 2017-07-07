@@ -3,11 +3,23 @@ import './App.css';
 var uuid = require('uuid');
 var firebase = require('firebase');
 
+
+var config = {
+    apiKey: "AIzaSyAV5gCx_8pMII_M0pytxdJcYeN_6qmR4YA",
+    authDomain: "reactform.firebaseapp.com",
+    databaseURL: "https://reactform.firebaseio.com",
+    projectId: "reactform",
+    storageBucket: "reactform.appspot.com",
+    messagingSenderId: "727529533573"
+  };
+  firebase.initializeApp(config);
+
+
 class App extends Component {
   constructor(props){
     super(props);
     this.state = {
-      id: uuid.vi(),
+      id: uuid.v1(),
       name: '',
       answers: {
         q1: '',
@@ -24,14 +36,20 @@ class App extends Component {
     this.setState({
       name: name
     }, function(){
-      console.log(this.state)
     })
     event.preventDefault();
   }
 
   handleQuestionSubmit(event){
+    firebase.database().ref('surveys/'+this.state.id).set({
+      name: this.state.name,
+      answers: this.state.answers
+    });
 
-    debugger
+    this.setState({submitted: true}, function(){
+      console.log(this.state)
+    })
+    event.preventDefault();
   }
 
   handleQuestionChange(event){
@@ -45,7 +63,6 @@ class App extends Component {
     this.setState({
       answers: answers
     }, function(){
-      console.log(this.state)
     })
   }
   render() {
@@ -68,6 +85,8 @@ class App extends Component {
             <input type="radio" name="q2" value="C3P0" onChange={this.handleQuestionChange}/>C3PO<br/>
             <input type="radio" name="q2" value="Vader" onChange={this.handleQuestionChange}/>Vader<br/>
             <input type="radio" name="q2" value="Lando" onChange={this.handleQuestionChange}/>Lando<br/>
+
+            <input type="submit" value="Submit"/>
           </form>
       </span>
     } else if(!this.state.name && this.state.submitted === false) {
@@ -79,7 +98,7 @@ class App extends Component {
       </span>
       questions = ''
     } else if (this.state.submitted === true) {
-
+      
     }
     return (
       <div className="App">
