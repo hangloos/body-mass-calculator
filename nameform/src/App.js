@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
 import './App.css';
+var uuid = require('uuid');
+var firebase = require('firebase');
 
 class App extends Component {
   constructor(props){
     super(props);
     this.state = {
-      id: '',
+      id: uuid.vi(),
       name: '',
       answers: {
         q1: '',
