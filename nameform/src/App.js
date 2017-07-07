@@ -98,7 +98,7 @@ class App extends Component {
       </span>
       questions = ''
     } else if (this.state.submitted === true) {
-      
+     user = <h2>Thank you for answering {this.state.name}</h2>
     }
     return (
       <div className="App">
